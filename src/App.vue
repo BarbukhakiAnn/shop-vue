@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <HeaderComponent> </HeaderComponent>
+   
     <router-view/>
   </div>
 </template>
 
 <script>
+import HeaderComponent from './components/Header';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components : {HeaderComponent}
 }
 </script>
 
