@@ -9,57 +9,23 @@
             <a>О нас</a>
         </nav>
         <div class="user">
-            <div v-on:click="togglePopup()">Войти</div>
+
+            <Login> </Login>
             <div>Корзина(0)</div>
         </div>
-        <div class="popup" v-show="showPopup"> 
-            <div class="body"> 
-                <form>
-                    <input type="text" placeholder="login" v-model="login"/>
-                    <input type="password" placeholder="password" v-model="password"/>
-
-                    <button>Войти</button>
-                </form>
-            </div>
-        </div>
+        
 
     </header>
 </template>
 
 <script>
+    import Login from './Login';
     export default {
         name: 'HeaderComponent',
-        data (){
-            return {
-                showPopup: false,
-                login: '',
-                password: ''
-            };
-        },
-        methods : {
-            singIn(){
-                fetch (
-                    'localhost/Abarbukhaki/api/login.php',
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify ({
-                            login: this.login,
-                            password: this.password
-                        })
-                    }
-                ).then (res => res.json).then(res => {
-
-                });
-
-            },
-            togglePopup () {
-                this.showPopup = !this.showPopup;
-            }
-        }
+        components: {Login}
+        
     };
+       
 </script>
 <style scoped>
     header {
